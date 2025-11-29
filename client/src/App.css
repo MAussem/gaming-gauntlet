@@ -1,0 +1,175 @@
+/* GLOBAL STYLES & BACKGROUND */
+body {
+    background-color: #121212; /* Deep Black/Gray Background */
+    color: #E0E0E0; /* Light Gray Text */
+    font-family: 'Arial', sans-serif; /* Use a common, clear font */
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    display: flex;
+    justify-content: center;
+}
+
+#root {
+    display: flex;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+.gauntlet-app {
+    width: 100%;
+    max-width: 900px;
+    padding: 20px;
+}
+
+/* HEADER & TITLE */
+header {
+    margin-bottom: 40px;
+    padding: 20px 0;
+    border-bottom: 2px solid #333;
+    text-align: center;
+}
+
+header h1 {
+    font-size: 2.5em;
+    color: #FFD700; /* Gold/Yellow for the main title */
+    letter-spacing: 3px;
+    margin-bottom: 5px;
+}
+
+header p {
+    color: #999;
+    font-style: italic;
+    margin-top: 0;
+}
+
+/* NAVIGATION TABS */
+.nav-tabs {
+    margin: 20px 0;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.nav-tabs button {
+    background-color: #1F1F1F; /* Dark button background */
+    color: #E0E0E0;
+    border: 1px solid #444;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.nav-tabs button:hover {
+    background-color: #2e2e2e;
+    color: #FFD700;
+}
+
+.nav-tabs button.active {
+    background-color: #1E90FF; /* Primary Blue for active tab */
+    color: white;
+    border-color: #1E90FF;
+}
+
+/* MAIN CONTENT AREA */
+.main-content {
+    background-color: #1F1F1F; /* Slightly lighter inner container */
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+    min-height: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+/* SIGN UP FORM (General Styles) */
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Keeps inputs and buttons centered within the form */
+    gap: 15px;
+    width: 100%; /* Change max-width to width to take up available space */
+    max-width: 450px; /* NEW: Use max-width to constrain size on large screens */
+    margin: 0 auto; /* NEW: Ensure the form itself is centered in the main content area */
+    padding: 10px;
+}
+
+form h2 {
+    color: #FFD700;
+    margin-bottom: 20px;
+    font-size: 1.8em;
+}
+
+form input[type="text"],
+form input[type="email"],
+form input[type="text"]::placeholder {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #444;
+    background-color: #2b2b2b;
+    color: #E0E0E0;
+    border-radius: 4px;
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+}
+
+form h3 {
+    color: #1E90FF; /* Blue for section headings */
+    margin: 10px 0 5px 0;
+}
+
+/* ACCEPT BUTTON */
+button[type="submit"] {
+    background-color: #1E90FF; /* Primary Blue */
+    color: white;
+    border: none;
+    padding: 15px 40px;
+    font-size: 1.1em;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 50px; /* Pill shape */
+    transition: background-color 0.3s ease;
+    margin-top: 10px;
+}
+
+button[type="submit"]:hover {
+    background-color: #0077cc; /* Darker blue on hover */
+    transform: translateY(-2px); /* Slight lift effect */
+}
+
+/* FOOTER */
+footer {
+    margin-top: 40px;
+    padding: 20px 0;
+    border-top: 1px solid #333;
+    font-size: 0.8em;
+    color: #777;
+    text-align: center;
+}
+
+/* ROSTER/GAME LIST STYLES (for future use) */
+.game-picks-container, .roster-container {
+    text-align: left;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.aussem-game-list li {
+    list-style-type: none;
+    padding: 8px 0;
+    border-bottom: 1px dashed #333;
+}
+
+.prize-reveal {
+    font-size: 1.2em;
+    color: #FFD700;
+    font-weight: bold;
+    padding: 15px;
+    border: 2px solid #FFD700;
+    border-radius: 4px;
+    text-align: center;
+    margin-top: 20px;
+}
