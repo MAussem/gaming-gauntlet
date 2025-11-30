@@ -1,11 +1,8 @@
-// client/src/VgcTeamReveal.jsx
-
-import React, { useState } from 'react';
-import Tilt from 'react-parallax-tilt'; // 👈 Import Tilt
+import { useState } from 'react';
+import Tilt from 'react-parallax-tilt';
 import { GLITCH_VGC_TEAM } from './constants'; 
 import './VgcTeamReveal.css'; 
 
-// New Functional Component for the Card
 const PokemonCard = ({ pokemon }) => {
     // State to manage the flip (true = show back/stats)
     const [isFlipped, setIsFlipped] = useState(false);
@@ -22,21 +19,28 @@ const PokemonCard = ({ pokemon }) => {
                     
                     {/* CARD FRONT */}
                     <div className="card-face card-front">
-                        <img src={pokemon.imagePath} alt={pokemon.name} className="pokemon-image" />
                         <h3>{pokemon.name}</h3>
+                        <img src={pokemon.imagePath} alt={pokemon.name} className="pokemon-image" />
                         <p className="pokemon-role">Role: {pokemon.role}</p>
                         
+                        <div className="details-moves-row"> 
+                        
+                        {/* LEFT COLUMN: DETAILS */}
                         <div className="pokemon-details">
                             <h4>Details:</h4>
                             <p><strong>Ability:</strong> {pokemon.details.ability}</p>
                             <p><strong>Item:</strong> {pokemon.details.heldItem}</p>
                             <p><strong>Nature:</strong> {pokemon.details.nature}</p>
-                            
+                        </div>
+                        
+                        {/* RIGHT COLUMN: MOVES */}
+                        <div className="pokemon-moves"> 
                             <h4>Moves:</h4>
                             <ul>
                                 {pokemon.details.moves.map((move, i) => <li key={i}>{move}</li>)}
                             </ul>
                         </div>
+                    </div>
                         <p className="flip-prompt">Click to reveal base stats!</p>
                     </div>
 
@@ -45,10 +49,20 @@ const PokemonCard = ({ pokemon }) => {
                         <h3>Base Stats: {pokemon.name}</h3>
                         <table className="stats-table">
                             <tbody>
-                                {Object.entries(pokemon.baseStats).map(([statName, value]) => (
+                                {Object.entries(pokemon.baseStats).map(([statName, statData]) => ( // 👈 Note statData
                                     <tr key={statName} className={statName === 'Total' ? 'stat-total' : ''}>
                                         <td>{statName}</td>
-                                        <td>{value}</td>
+                                        {/* NEW: Render stat value and a bar */}
+                                        <td className="stat-bar-cell"> 
+                                            <div className="stat-value">{statData.value}</div>
+                                            <div 
+                                                className="stat-bar" 
+                                                style={{ 
+                                                    width: `${statData.value / 2.55}%`, // Max base stat is 255 (Slaking HP), so scale to 100%
+                                                    backgroundColor: statData.color 
+                                                }}
+                                            ></div>
+                                        </td>
                                     </tr>
                                 ))}
                             </tbody>
@@ -61,7 +75,6 @@ const PokemonCard = ({ pokemon }) => {
     );
 };
 
-// Main component remains the same, just rendering the card component
 const VgcTeamReveal = () => {
     return (
         <div className="vgc-team-section">

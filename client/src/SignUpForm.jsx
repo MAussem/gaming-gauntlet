@@ -1,6 +1,4 @@
-// client/src/SignUpForm.jsx
-
-import React, { useState } from 'react';
+import { useState } from 'react';
 
 function SignUpForm() {
   const [formData, setFormData] = useState({ name: '', email: '', game1: '', game2: '' });

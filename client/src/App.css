@@ -14,12 +14,15 @@ body {
     display: flex;
     justify-content: center;
     min-height: 100vh;
+    position: relative; 
+    z-index: 1;
 }
 
 .gauntlet-app {
     width: 100%;
     max-width: 900px;
     padding: 20px;
+    z-index: 10;
 }
 
 /* HEADER & TITLE */
@@ -90,6 +93,12 @@ header p {
     text-align: center;
 }
 
+@keyframes pulseGlow {
+  0% { box-shadow: 0 0 5px #1E90FF, 0 0 10px #1E90FF; }
+  50% { box-shadow: 0 0 15px #FFD700, 0 0 20px #FFD700; } /* Gold Pulse */
+  100% { box-shadow: 0 0 5px #1E90FF, 0 0 10px #1E90FF; }
+}
+
 /* SIGN UP FORM (General Styles) */
 form {
     display: flex;
@@ -97,9 +106,15 @@ form {
     align-items: center; /* Keeps inputs and buttons centered within the form */
     gap: 15px;
     width: 100%; /* Change max-width to width to take up available space */
-    max-width: 450px; /* NEW: Use max-width to constrain size on large screens */
-    margin: 0 auto; /* NEW: Ensure the form itself is centered in the main content area */
-    padding: 10px;
+    max-width: 500px; /* NEW: Use max-width to constrain size on large screens */
+    margin: 30px auto; /* NEW: Ensure the form itself is centered in the main content area */
+    padding: 30px;
+    background-color: #1a1a1a; /* Dark background behind form fields */
+    border: 2px solid #1E90FF; /* Blue border */
+    border-radius: 12px;
+    
+    /* Apply the animation: */
+    animation: pulseGlow 4s infinite alternate;
 }
 
 form h2 {
@@ -127,12 +142,12 @@ form h3 {
 
 /* ACCEPT BUTTON */
 button[type="submit"] {
-    background-color: #1E90FF; /* Primary Blue */
-    color: white;
+    background-color: #FFD700; /* Primary Blue */
+    color: #1a1a1a;
     border: none;
     padding: 15px 40px;
-    font-size: 1.1em;
-    font-weight: bold;
+    font-size: 1.2em;
+    font-weight: 800;
     cursor: pointer;
     border-radius: 50px; /* Pill shape */
     transition: background-color 0.3s ease;
@@ -140,7 +155,7 @@ button[type="submit"] {
 }
 
 button[type="submit"]:hover {
-    background-color: #0077cc; /* Darker blue on hover */
+    background-color: #ffc400;
     transform: translateY(-2px); /* Slight lift effect */
 }
 
@@ -159,6 +174,12 @@ footer {
     text-align: left;
     max-width: 600px;
     margin: 0 auto;
+}
+
+.game-logo {
+    margin-left: -2px;
+    width: 190px;
+    height: 80px;
 }
 
 .aussem-game-list li {
