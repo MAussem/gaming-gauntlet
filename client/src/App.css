@@ -43,6 +43,10 @@ header p {
     margin-top: 0;
 }
 
+.picks-title {
+    color: #FFD700;
+}
+
 /* NAVIGATION TABS */
 .nav-tabs {
     margin: 20px 0;
@@ -172,4 +176,89 @@ footer {
     border-radius: 4px;
     text-align: center;
     margin-top: 20px;
+}
+
+.video-card h3 {
+    color: #FFD700; /* Gold heading */
+    margin-top: 10px;
+    font-size: 1.2em;
+}
+
+.reveal-video {
+    width: 100%; /* Make video fill the card */
+    max-width: 570px; /* Slight inset from card edges */
+    border-radius: 4px;
+    /* Optional: Add a slight gold border for a premium look */
+    border: 2px solid #FFD700;
+}
+
+/* VGC Team Reveal Button Styling */
+.vgc-reveal-button {
+    background-color: #dc3545; /* Red color for a sense of danger/warning */
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    margin: 20px auto;
+    font-size: 1.2em;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, transform 0.2s;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4);
+    text-transform: uppercase;
+}
+
+.vgc-reveal-button:hover {
+    background-color: #c82333; /* Darker red on hover */
+    transform: translateY(-2px);
+}
+
+/* ---------------------------------------------------------------------- */
+/* 📱 MEDIA QUERIES FOR MOBILE RESPONSIVENESS (Screens less than 600px) */
+/* ---------------------------------------------------------------------- */
+@media (max-width: 600px) {
+    /* Reduce padding and margins on small screens */
+    .gauntlet-app {
+        padding: 10px;
+    }
+
+    header h1 {
+        font-size: 1.8em; /* Smaller title on mobile */
+    }
+
+    .main-content {
+        padding: 20px 10px; /* Reduced side padding */
+        min-height: auto;
+    }
+
+    /* Make nav tabs stack or fit better */
+    .nav-tabs {
+        flex-direction: column; /* Stack buttons vertically */
+        gap: 5px;
+    }
+    
+    .nav-tabs button {
+        padding: 8px 10px;
+        font-size: 0.9em;
+    }
+
+    /* Input fields should maintain their width, but padding can be adjusted */
+    form input[type="text"],
+    form input[type="email"] {
+        padding: 10px;
+    }
+    
+    /* Make the submit button slightly smaller */
+    button[type="submit"] {
+        padding: 12px 30px;
+        font-size: 1em;
+    }
+
+    .video-card {
+        padding: 10px;
+        max-width: 95%; /* Use almost full width on small screens */
+    }
+    .reveal-video {
+        max-width: 100%;
+    }
 }
