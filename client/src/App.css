@@ -82,7 +82,7 @@ header p {
 
 /* MAIN CONTENT AREA */
 .main-content {
-    background-color: #1F1F1F; /* Slightly lighter inner container */
+    background-color: #2f2f2f80; /* Slightly lighter inner container */
     padding: 30px;
     border-radius: 8px;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
