@@ -12,7 +12,6 @@ function Roster() {
   useEffect(() => {
     const fetchChallengers = async () => {
       try {
-        // Use the config URL instead of hardcoded localhost
         const response = await fetch(`${API_BASE_URL}/challengers`);
         const data = await response.json();
         setChallengers(data);
