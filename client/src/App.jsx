@@ -4,6 +4,7 @@ import { useState } from "react";
 import SignUpForm from "./SignUpForm";
 import Roster from "./Roster";
 import GamePicks from "./GamePicks";
+import AdminPanel from './AdminPanel';
 import BackgroundParticles from "./BackgroundParticles";
 import "./App.css";
 
@@ -12,16 +13,15 @@ function App() {
   const [activeView, setActiveView] = useState("signup");
 
   const renderContent = () => {
-    switch (activeView) {
-      case "roster":
-        return <Roster />;
-      case "games":
-        return <GamePicks />;
-      case "signup":
-      default:
-        return <SignUpForm />;
-    }
-  };
+  switch (activeView) {
+    case 'roster': return <Roster />;
+    case 'games': return <GamePicks />;
+    case 'rules': return <Rules />;
+    case 'admin': return <AdminPanel />;
+    case 'signup':
+    default: return <SignUpForm />;
+  }
+};
 
   return (
     <>
@@ -59,6 +59,8 @@ function App() {
             © {new Date().getFullYear()} The Aussem Brothers' Gauntlet. Do you
             accept the challenge?
           </p>
+          {/* Hidden Admin Button */}
+<button onClick={() => setActiveView('admin')} style={{opacity: 0.2}}>⚙️</button>
         </footer>
       </div>
     </>

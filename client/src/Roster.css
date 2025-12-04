@@ -1,0 +1,180 @@
+/* client/src/Roster.css */
+
+.roster-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.roster-subtitle {
+    color: #999;
+    margin-bottom: 30px;
+    font-style: italic;
+}
+
+/* --- THE GRID LAYOUT --- */
+.roster-grid {
+    display: grid;
+    /* This magically creates columns that fit the screen size */
+    grid-template-columns: repeat(2, minmax(280px, 1fr));
+    gap: 20px;
+    padding: 10px;
+}
+
+/* --- CHALLENGER CARD --- */
+/* Tilt Wrapper */
+.roster-tilt-wrapper {
+    height: 100%;
+    transform-style: preserve-3d;
+}
+
+/* --- CHALLENGER CARD --- */
+.challenger-card {
+    background-color: #1F1F1F;
+    border: 1px solid #444; /* Default border */
+    border-radius: 8px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    /* Transition for the flame border effect */
+    transition: box-shadow 0.3s ease, border-color 0.3s ease;
+    position: relative;
+    height: 100%;
+    transform: translateZ(20px); 
+}
+
+/* 🔥 FLAME HOVER EFFECT 🔥 */
+.challenger-card:hover {
+    border-color: #ff4500; /* OrangeRed border */
+    box-shadow: 
+        0 0 15px rgba(255, 69, 0, 0.5),    /* Inner Red/Orange heat */
+        0 10px 30px rgba(255, 165, 0, 0.4), /* Middle Orange glow */
+        0 0 50px rgba(255, 215, 0, 0.2);   /* Outer Gold Haze */
+}
+
+/* Winner Styling */
+.challenger-card.winner-card {
+    border: 2px solid #FFD700;
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.6);
+}
+
+/* --- CARD SECTIONS --- */
+.card-header {
+    background-color: #252525;
+    padding: 15px;
+    border-bottom: 1px solid #333;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* ✨ SHINY NAME EFFECT ✨ */
+.card-header h3 {
+    margin: 0;
+    font-size: 1.3em;
+    font-weight: 800;
+    text-transform: uppercase;
+    
+    /* Create the Gradient */
+    background: linear-gradient(
+        110deg, 
+        #ff8c00 0%,   /* Dark Orange */
+        #ffd700 25%,  /* Gold */
+        #ffffff 50%,  /* White Hot Shine */
+        #ffd700 75%,  /* Gold */
+        #ff8c00 100%  /* Dark Orange */
+    );
+    
+    /* Clip background to text */
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent; 
+
+    /* Animate the background position */
+    animation: shine 4s linear infinite;
+}
+
+/* Define the shine animation */
+@keyframes shine {
+    to {
+        background-position: 200% center;
+    }
+}
+
+.status-badge {
+    font-size: 0.75em;
+    background-color: #333;
+    padding: 4px 8px;
+    border-radius: 12px;
+    color: #bbb;
+    border: 1px solid #444;
+}
+
+.card-body {
+    padding: 15px;
+    flex-grow: 1; 
+}
+
+.card-body h4 {
+    margin: 0 0 10px 0;
+    color: #ff8c00; /* Changed from Blue to Dark Orange to match theme */
+    font-size: 0.9em;
+    text-transform: uppercase;
+}
+
+/* Game Tags (Pills) */
+.game-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.game-tag {
+    background-color: #1a1a1a;
+    color: #E0E0E0;
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 0.85em;
+    border: 1px solid #555;
+    /* Subtle flame accent on tags */
+    border-left: 2px solid #ff4500; 
+}
+
+.card-footer {
+    padding: 15px;
+    background-color: #1a1a1a;
+    border-top: 1px solid #333;
+    font-size: 0.9em;
+}
+
+.status-text {
+    margin: 5px 0 0 0;
+    color: #aaa;
+}
+
+.winner-banner {
+    margin-top: 10px;
+    text-align: center;
+    background-color: #FFD700;
+    color: #000;
+    font-weight: bold;
+    padding: 5px;
+    border-radius: 4px;
+    box-shadow: 0 0 10px #FFD700;
+}
+
+.loading-spinner, .empty-roster {
+    padding: 40px;
+    font-size: 1.2em;
+    color: #777;
+}
+
+/* --- MOBILE ADJUSTMENTS --- */
+@media (max-width: 600px) {
+    .roster-grid {
+        grid-template-columns: 1fr; /* Force single column on mobile */
+    }
+}

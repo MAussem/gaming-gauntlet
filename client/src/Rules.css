@@ -1,0 +1,98 @@
+/* client/src/Rules.css */
+
+.rules-container {
+    text-align: left;
+    color: #E0E0E0;
+}
+
+.rules-container h2 {
+    color: #FFD700;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.rules-container h3 {
+    color: #1E90FF;
+    margin-top: 25px;
+    border-bottom: 1px solid #333;
+    padding-bottom: 5px;
+}
+
+.rules-intro {
+    text-align: center;
+    font-style: italic;
+    color: #999;
+}
+
+.points-table {
+    width: 100%;
+    margin-top: 10px;
+    border-collapse: collapse;
+    background-color: #222;
+}
+
+.points-table th, .points-table td {
+    border: 1px solid #444;
+    padding: 10px;
+    text-align: left;
+}
+
+.points-table th {
+    background-color: #FFD700;
+    color: #121212;
+}
+
+.rules-container ul {
+    line-height: 1.6;
+    padding-left: 20px;
+}
+
+.rules-container li {
+    margin-bottom: 8px;
+}
+
+@media (max-width: 600px) {
+    .rules-container {
+        padding: 0; /* Remove extra padding inside the modal content area */
+    }
+
+    .rules-container h2 {
+        font-size: 1.6em;
+        line-height: 1.2;
+    }
+
+    .rules-container h3 {
+        font-size: 1.2em;
+        margin-top: 20px;
+    }
+
+    .rules-intro {
+        font-size: 0.9em;
+    }
+
+    /* Lists */
+    .rules-container ul {
+        padding-left: 10px; /* Reduce indentation */
+    }
+    
+    .rules-container li {
+        font-size: 0.95em;
+        margin-bottom: 10px; /* Add spacing for readability */
+    }
+
+    /* --- POINTS TABLE MOBILE --- */
+    .points-table {
+        font-size: 0.9em; /* Shrink text slightly */
+    }
+
+    .points-table th, 
+    .points-table td {
+        padding: 8px 5px; /* Reduce cell padding */
+    }
+
+    /* Force the table to look decent if it gets too squeezed */
+    .points-table td strong {
+        display: block; /* Put points value on its own line if needed */
+        margin-bottom: 2px;
+    }
+}

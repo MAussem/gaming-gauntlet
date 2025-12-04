@@ -60,6 +60,29 @@ app.post('/api/signup', async (req, res) => {
     }
 });
 
+// 3. PATCH: Update a challenger's status or win state
+app.patch('/api/challengers/:id', async (req, res) => {
+    const { id } = req.params;
+    const { status } = req.body;
+
+    try {
+        const updatedChallenger = await Challenger.findByIdAndUpdate(
+            id,
+            { status: status },
+            { new: true } // Return the updated document
+        );
+
+        if (!updatedChallenger) {
+            return res.status(404).json({ message: "Challenger not found" });
+        }
+
+        res.json(updatedChallenger);
+    } catch (error) {
+        console.error("Error updating challenger:", error);
+        res.status(500).json({ message: "Update failed." });
+    }
+});
+
 // --- SERVER START ---
 app.listen(PORT, () => {
     console.log(`Server running on http://localhost:${PORT}`);
